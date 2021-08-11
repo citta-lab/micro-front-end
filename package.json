@@ -1,0 +1,19 @@
+{
+  "name": "micro-front-end",
+  "version": "1.0.0",
+  "description": "micro front end examples with react spa's",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/citta-lab/micro-front-end.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/citta-lab/micro-front-end/issues"
+  },
+  "homepage": "https://github.com/citta-lab/micro-front-end#readme"
+}
