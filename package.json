@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/citta-lab/micro-front-end/issues"
   },
-  "homepage": "https://github.com/citta-lab/micro-front-end#readme"
+  "homepage": "https://github.com/citta-lab/micro-front-end#readme",
+  "dependencies": {
+    "grunt": "^1.4.1",
+    "grunt-cli": "^1.4.3"
+  }
 }
