@@ -5,14 +5,21 @@ module.exports = (grunt) => {
   grunt.initConfig({
     webpack: {
       // eslint-disable-next-line
-      prod: Object.assign({
-        stats: process.env.NODE_ENV === 'production',
+      dev: Object.assign({
+        stats: process.env.NODE_ENV === 'development',
+        // watch: true,
         optimization: {
           minimizer: [new TerserPlugin({
-            extractComments: true,
+            extractComments: false,
           })],
         },
       }, webpackConfig),
+    },
+    eslint: {
+      options: {
+        configFile: '.eslintrc',
+      },
+      target: ['src/**/*.js'],
     },
     connect: {
       server: {
@@ -22,25 +29,24 @@ module.exports = (grunt) => {
           protocol: 'http',
           hostname: '*',
           base: '.',
-          middleware: function (connect, options, middlewares) {
-            middlewares.unshift(function (req, res, next) {
+          middleware(connect, options, middlewares) {
+            middlewares.unshift((req, res, next) => {
               res.setHeader('Access-Control-Allow-Origin', '*');
-              res.setHeader('Access-Control-Allow-Methods', "POST, GET");
-              res.setHeader('Access-Control-Allow-Headers', "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
+              res.setHeader('Access-Control-Allow-Methods', 'POST, GET');
+              res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With');
               next();
             });
             return middlewares;
-          }
-        }
-      }
-    }
+          },
+        },
+      },
+    },
   });
 
 
-
   // Compile (e.g minification)
-  grunt.registerTask("default", ["connect:server"]);
-  grunt.registerTask('compile', ['webpack:prod']);
+  grunt.registerTask('default', ['connect:server']);
+  grunt.registerTask('compile', ['webpack:dev']);
   grunt.loadNpmTasks('grunt-webpack');
   grunt.loadNpmTasks('grunt-contrib-connect');
-};  
+};

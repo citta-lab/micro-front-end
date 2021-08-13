@@ -1,14 +1,19 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Button, Modal } from 'react-bootstrap';
+import Timer from './Timer';
 
 function Example() {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleShow = () => {
+    console.log(' click is called ');
+    setShow(true);
+  };
 
   return (
     <>
+      <Timer />
       <Button variant="primary" onClick={handleShow}>
         Launch demo modal
       </Button>
@@ -17,7 +22,7 @@ function Example() {
         <Modal.Header closeButton>
           <Modal.Title>React Modal for your Rails App</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+        <Modal.Body>Yay Modal</Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Close

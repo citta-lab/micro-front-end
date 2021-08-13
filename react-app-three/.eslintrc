@@ -1,0 +1,56 @@
+{
+    "extends": "airbnb",
+    "parser": "babel-eslint",
+    "plugins": [
+        "react",
+        "react-hooks",
+        "jsx-a11y",
+        "import",
+        "compat"
+    ],
+    "env": {
+        "browser": true,
+        "jest": true,
+        "amd": true
+    },
+    "rules": {
+        "react/require-default-props": "off",
+        "jsx-a11y/label-has-for": "off",
+        "compat/compat": "error",
+        "jsx-a11y/label-has-associated-control": [
+            2,
+            {
+                "assert": "either"
+            }
+        ],
+        "import/no-extraneous-dependencies": 0,
+        "react/destructuring-assignment": "warn",
+        "react-hooks/rules-of-hooks": "error",
+        "react/forbid-component-props": [
+            1,
+            {
+                "forbid": [
+                    "style"
+                ]
+            }
+        ],
+        "react/forbid-dom-props": [
+            1,
+            {
+                "forbid": [
+                    "style"
+                ]
+            }
+        ],
+        "react/jsx-filename-extension": [
+            1,
+            {
+                "extensions": [
+                    ".js",
+                    ".jsx"
+                ]
+            }
+        ],
+        "linebreak-style": "off"
+    }
+}

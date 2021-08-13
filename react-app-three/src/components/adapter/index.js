@@ -8,13 +8,12 @@ import Example from '../Example';
  * So we are doing the same but wrapped with in define.
  */
 
-define(function(){
-    const AppThreeAdapter = function () {};
+define(() => {
+  const AppThreeAdapter = function () {};
 
-    AppThreeAdapter.prototype.showModal = function(targetNode, props) {
-        ReactDOM.render(<Example />),targetNode
-    };
+  AppThreeAdapter.prototype.showModal = function (targetNode) {
+    ReactDOM.render(<Example />, targetNode);
+  };
 
-    return AppThreeAdapter;
-})
-
+  return AppThreeAdapter;
+});
